@@ -15,8 +15,10 @@
 namespace SearchPress\VIP_Go;
 
 function hooks() {
-	remove_action( 'sp_reindex', [ SP_Cron(), 'reindex' ] );
-	add_action( 'sp_reindex', __NAMESPACE__ . '\reindex' );
+	if ( function_exists( 'SP_Cron' ) ) {
+		remove_action( 'sp_reindex', [ SP_Cron(), 'reindex' ] );
+		add_action( 'sp_reindex', __NAMESPACE__ . '\reindex' );
+	}
 }
 add_action( 'after_setup_theme', __NAMESPACE__ . '\hooks', 30 );
 

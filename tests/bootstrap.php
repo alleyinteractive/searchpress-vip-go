@@ -17,7 +17,13 @@ require_once $_tests_dir . '/includes/functions.php';
  * Manually load the plugin being tested.
  */
 function _manually_load_plugin() {
-	require dirname( dirname( __FILE__ ) ) . '/searchpress-vip-go.php';
+	$_sp_dir = getenv( 'SP_DIR' );
+	if ( ! $_sp_dir ) {
+		$_sp_dir = dirname( dirname( __DIR__ ) ) . '/searchpress';
+	}
+
+	require_once dirname( __DIR__ ) . '/searchpress-vip-go.php';
+	require_once $_sp_dir . '/searchpress.php';
 }
 tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );
 
