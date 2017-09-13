@@ -31,7 +31,9 @@ before_script:
       # After CodeSniffer install you should refresh your path.
       phpenv rehash
     fi
-  -
+  - SP_DIR=$WP_CORE_DIR/wp-content/plugins/searchpress
+  - git clone https://github.com/alleyinteractive/searchpress.git $SP_DIR
+
 
 script:
   - if [[ "$PHP_LINT" == "1" ]]; then find . -type "f" -iname "*.php" | xargs -L "1" php -l; fi
