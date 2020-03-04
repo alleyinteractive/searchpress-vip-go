@@ -49,7 +49,7 @@ function reindex() {
 
 		// Ensure the script has enough time to run, increase the time limit by
 		// the duration of this loop plus 5 seconds.
-		@set_time_limit( time() - $lap + 5 );
+		@set_time_limit( time() - $lap + 30 );
 		$lap = time();
 
 		sp_contain_memory_leaks();
