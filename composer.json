@@ -1,5 +1,6 @@
 {
   "name": "alleyinteractive/searchpress-vip-go",
+  "type": "wordpress-plugin",
   "authors": [
     {
       "name": "Matthew Boynes",
